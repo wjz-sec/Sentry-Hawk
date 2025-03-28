@@ -1,0 +1,218 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "path": "/home/index",
+      "name": "home",
+      "component": "/home/index",
+      "meta": {
+        "icon": "HomeFilled",
+        "title": "首页",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": true,
+        "isKeepAlive": true
+      }
+    },
+
+    {
+      "path": "/assets",
+      "name": "assets",
+      "redirect": "/assets/accountManage",
+      "meta": {
+        "icon": "PieChart",
+        "title": "运营中心",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/assets/assetManage",
+          "name": "assetManage",
+          "component": "/assets/assetManage/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "资产管理",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/assets/assetManage/detail/:id",
+              "name": "assetManageDetail",
+              "component": "/assets/assetManage/detail",
+              "meta": {
+                "icon": "Menu",
+                "title": "资产详情",
+                "activeMenu": "/assets/assetManage",
+                "isLink": "",
+                "isHide": true,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        },
+        {
+          "path": "/assets/attckManage",
+          "name": "attckManage",
+          "redirect": "/assets/attckManage/Vuln_info",
+          "meta": {
+            "icon": "Menu",
+            "title": "攻击面管理",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/assets/attckManage/Vuln_info",
+              "name": "Vuln_info",
+              "component": "/assets/attckManage/Vuln_info/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "漏洞管理",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "path": "/task",
+      "name": "task",
+      "redirect": "/task/accountManage",
+      "meta": {
+        "icon": "List",
+        "title": "任务中心",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/task/scanTaskManage",
+          "name": "scanTaskManage",
+          "component": "/task/scanTaskManage/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "扫描任务",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+
+    {
+      "path": "/poc/index",
+      "name": "poc",
+      "component": "/poc/index",
+      "meta": {
+        "icon": "Operation",
+        "title": "POC管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
+    },
+
+    {
+      "path": "/system",
+      "name": "system",
+      "redirect": "/system/accountManage",
+      "meta": {
+        "icon": "Tools",
+        "title": "系统管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/system/organizationManage",
+          "name": "organizationManage",
+          "component": "/system/organizationManage/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "项目管理",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/system/assetInput",
+          "name": "assetInput",
+          "component": "/system/assetInput/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "项目资产",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/system/roleManage",
+          "name": "roleManage",
+          "component": "/system/roleManage/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "角色管理",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+
+    {
+      "path": "/about/index",
+      "name": "about",
+      "component": "/about/index",
+      "meta": {
+        "icon": "InfoFilled",
+        "title": "关于本系统",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
+    }
+  ],
+  "msg": "成功"
+}

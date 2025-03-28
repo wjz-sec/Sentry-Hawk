@@ -1,0 +1,24 @@
+# 配置
+api:
+  QUAKE_API_KEY: "f77267c4-e55d-4090-9d92-994697988893"
+  FOFA_API_KEY: "bc1ccc87148484ddabc2dc69b572bdfc"
+  FOFA_USER_TOKEN: "eyJhbGciOiJIUzUxMiIsImtpZCI6Ik5XWTVZakF4TVRkalltSTJNRFZsWXpRM05EWXdaakF3TURVMlkyWTNZemd3TUdRd1pUTmpZUT09IiwidHlwIjoiSldUIn0.eyJpZCI6MjA1OTQ0LCJtaWQiOjEwMDExODc1OSwidXNlcm5hbWUiOiJHX2dodXN0IiwicGFyZW50X2lkIjowLCJleHAiOjE3NDMwMzk1MjN9.LlDgdTbqxb8y0TiPyM__Y0dDa1vvcYNgANfbxH6P2smC9srYq201SedlFfo82nm8fbv90SCMyltnVuBgdwSIzg"
+  
+email:
+  FOFA_EMAIL: "894886790@qq.com"
+
+blacklist_keywords:
+  blacklist_mail: ['mail.', 'email.', 'smtp.', 'pop.', 'pop3.', 'pop3s.', 'imap.', 'mailgun.', 'sendgrid.', 'outlook.', 'gmail.', 'yahoo.']
+
+info_tools:
+  dnsub_path : "D:\\assets_ledger\\plugin\\tools\\subdomain\\dnsub\\dnsub.exe"
+  cwd_path : "D:\\assets_ledger\\plugin\\tools\\subdomain\\dnsub\\"
+  rustscan_path : "D:\\assets_ledger\\plugin\\tools\\rustscan\\rustscan.exe"
+  ehole_path : "D:\\assets_ledger\\plugin\\tools\\ehole_windows\\ehole_windows.exe"
+  work_dir : "D:\\assets_ledger\\plugin\tools\\ehole_windows\\"
+  tidefinger_path : "D:\\assets_ledger\\plugin\\tools\\Tide_finger\\TideFinger.exe"
+  xray_path : "D:\\assets_ledger\\plugin\\tools\\xray\\"
+  nuclei_path : "D:\\assets_ledger\\plugin\\tools\\nuclei\\"
+  nuclei_temp : "D:\\assets_ledger\\plugin\\tools\\nuclei-templates\\"
+  afrog_path : "D:\\assets_ledger\\plugin\\tools\\afrog\\"
+

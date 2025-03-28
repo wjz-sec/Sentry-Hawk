@@ -1,0 +1,2 @@
+{"name":"www.qdlib.com.cn.","type":"A","class":"IN","status":"NOERROR","data":{"answers":[{"ttl":600,"type":"A","class":"IN","name":"www.qdlib.com.cn.","data":"58.221.80.174"}]},"resolver":"9.9.9.9:53"}
+{"name":"qdlib.com.cn.","type":"A","class":"IN","status":"NOERROR","data":{"authorities":[{"ttl":600,"type":"SOA","class":"IN","name":"qdlib.com.cn.","data":"dns13.hichina.com. hostmaster.hichina.com. 2025021817 3600 1200 86400 600"}]},"resolver":"1.0.0.2:53"}

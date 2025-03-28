@@ -29,31 +29,15 @@
 
 ### 安装使用步骤 📔
 
-#### 1.下载
-在[releases](https://github.com/wjz-sec/Sentry-Hawk/releases)下载前端和后端代码
-
-#### 2.前端
-- 1.安装依赖包 `pnpm install` 其他构建工具也可以
-- 2.运行前端 `pnpm dev`(打包命令 `pnpm build:pro`)
-- 其他指令
+- 1.下载
 ```shell
-# eslint 检测代码
-pnpm lint:eslint
-
-# prettier 格式化代码
-pnpm lint:prettier
-
-# stylelint 格式化样式
-pnpm lint:stylelint
+git clone git@github.com:wjz-sec/Sentry-Hawk.git
 ```
+- 2.安装依赖包 `pip install -r requirements.txt`
+- 3.创建迁移文件 `python ./manage.py makemigrations`
+- 4.迁移数据库 `python ./manage.py migrate`
+- 5.启动服务 `python ./manage.py runserver 0.0.0.0:8000`
 
-#### 3.后端
-```shell
-pip install -r requirements.txt # 安装依赖包
-python ./manage.py makemigrations # 创建迁移文件
-python ./manage.py migrate # 迁移数据库
-python ./manage.py runserver 0.0.0.0:8000 # 启动服务
-```
 
 
 ### 项目截图 📷

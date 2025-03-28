@@ -1,0 +1,141 @@
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+www.qdlib.com.cn:80 open
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn, [启东图书馆]
+58.221.239.236:183 open
+shuili.zgnt.cc:80 open
+www.qdlib.com.cn:80 open
+testphp.vulnweb.com:80 open
+shuili.zgnt.cc:80 open
+TCP/HTTP, [301], [Openresty], http://shuili.zgnt.cc/, []
+TCP/HTTP, [200], [jQuery][IIS][Microsoft-IIS/8.5], http://58.221.239.236:183/OP/Login.aspx, [None]
+TCP/HTTP, [200], [jQuery][IIS][PHP][ASP.NET][ASP][Microsoft HTTPAPI httpd 2.0], http://www.qdlib.com.cn/, [启东图书馆]
+TCP/HTTP, [200], [PHP][Nginx 1.19.0], http://testphp.vulnweb.com/, [Home of Acunetix Art]
+PoC Vulnerability Found: http://testphp.vulnweb.com poc-yaml-phpstudy-nginx-wrong-resolve php 
+ [+]PoC DATA
+Request Data:
+GET /index.php/.xxx HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36
+
+
+Response Data:
+HTTP/1.1 404 Not Found
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Type: text/html
+Date: Tue, 18 Mar 2025 01:45:16 GMT
+Server: nginx/1.19.0
+
+22b
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/1.19.0</center>
+</body>
+</html>
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+
+0
+
+
+
+TCP/HTTP, [301], [OpenResty], http://shuili.zgnt.cc, []

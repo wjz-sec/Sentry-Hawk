@@ -1,0 +1,35 @@
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    networks:
+      - backend
+    dns:
+      - 114.114.114.114
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: sentryhawk
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Aa123456!!
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: sentry-hawk_default
+
+volumes:
+  postgres_data:

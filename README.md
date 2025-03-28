@@ -75,10 +75,6 @@ python ./manage.py runserver 0.0.0.0:8000 # 启动服务
 ![scan](/images/light/scan.png)
 ![scan_add](/images/light/scan_add.png)
 
-- 数据大屏：
-
-![dataScreen](/images/light/screen.png)
-
 
 ### 浏览器支持 🌎
 
